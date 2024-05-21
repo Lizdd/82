@@ -1,0 +1,16 @@
+import win32com.client as win32
+
+outlook = win32.Dispatch('outlook.application')
+# Создаем новый элемент Microsoft Outlook
+mail = outlook.CreateItem(0)
+# Адрес получателя письма
+mail.To = 'example@mail.ru'
+# Тема письма
+mail.Subject = 'Документ'
+# Содержание письма
+mail.Body = 'Добрый день! Файл с результатом во вложении.'
+# Добавляем вложение
+attachment  = "C:/Users/Документ.docx"
+mail.Attachments.Add(attachment)
+# Отправляем письмо
+mail.Send()
